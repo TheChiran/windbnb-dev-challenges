@@ -1,13 +1,11 @@
 import React,{useState} from 'react';
 import logo from "./../../assets/images/static/logo.svg";
 import search from "./../../assets/images/icons/search_icon.svg";
-import Drawer from './Drawer';
-// import Drawer from 'react-modern-drawer';
+// import Drawer from './Drawer';
+import { Button, Drawer, Placeholder } from 'rsuite';
+import SearchHotel from './SearchHotel';
 
-// //import styles 👇
-// import 'react-modern-drawer/dist/index.css'
-
-const Header = ({openDrawer}) => {
+const Header = () => {
     const [isOpen,setIsOpen] = useState(false);
 
     return (
@@ -17,7 +15,7 @@ const Header = ({openDrawer}) => {
             <img src={logo} alt="logo image" />
           </a>
         </div>
-        <div className="search_section" onClick={openDrawer}>
+        <div className="search_section" onClick={()=> setIsOpen(true)}>
           <div className="search_section__item">
             <p>Helsinki, Finland</p>
           </div>
@@ -28,6 +26,11 @@ const Header = ({openDrawer}) => {
             <img src={search} alt="" />
           </div>
         </div>
+
+        
+        <Drawer className='search-hotel-parent' backdrop placement={'top'} open={isOpen} onClose={() => setIsOpen(false)}>
+          <SearchHotel/>
+        </Drawer>
       </header>
     );
 };
