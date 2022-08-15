@@ -1,0 +1,208 @@
+@import "variables.scss";
+@import "common-class.scss";
+@import "responsive/responsive.scss";
+@import "fonts.scss";
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+
+    .search_section{
+        display: flex;
+        align-items: center;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+
+        &__item{
+            padding: 18px 16px;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #F2F2F2;
+
+            p{
+                color: $text-color;
+                padding: 0;
+                margin: 0;
+                font-family: 'Mulish', sans-serif;
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 400;
+            }
+
+            &:nth-of-type(2){
+                p{
+                    color: $gray-text-color !important;
+                }
+            }
+
+            &:nth-of-type(3){
+                border-right: unset !important;
+                img{
+                    width: 18px;
+                }
+            }
+        }
+    }
+}
+
+.room-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+
+        &__location{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: $text-color;
+        }
+
+        &__total-seat{
+            color: total-seat-color;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+
+    &__rooms{
+        display: grid;
+        grid-template-columns: repeat(3, calc(33.33% - 32px));
+        column-gap: 32px;
+        row-gap: 50px;
+        justify-content: space-between;
+
+        .room{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+
+            &__image-wrapper{
+                width: 100%;
+                padding-top: calc(296 / 395 * 100%);
+                position: relative;
+    
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 24px;
+                }
+            }
+
+            &__details{
+                display: flex;
+                flex-direction: column;
+                row-gap: 12px;
+
+                &__detail{
+                    display: flex;
+                    justify-content: space-between;
+                    min-height: 30px;
+
+                    &__title{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 11px;
+
+                        &__label{
+                            width: 112px;
+                            height: 28px;
+                            border: 1px solid $total-seat-color;
+                            border-radius: 12px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-family: 'Montserrat', sans-serif;
+                            color: $total-seat-color;
+                            font-size: 12px;
+                            line-height: 15px;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                        }
+
+                        h2{
+                            font-family: 'Montserrat', sans-serif;
+                            font-size: 14px;
+                            line-height: 18px;
+                            font-weight: 500;
+                            color: #828282;
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    &__rating{
+                        display: flex;
+                        column-gap: 8px;
+                        align-items: center;
+
+                        span{
+                            &:nth-of-type(1){
+                                img{
+                                    width: 16px;
+                                }
+                            }
+
+                            &:nth-of-type(2){
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 18px;
+                                color: $total-seat-color;
+                            }
+                        }
+                    }
+                }
+
+                &__description{
+                    margin: 0;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #333333;
+                }
+            }
+        }
+    }
+}
+
+/* footer section */
+footer{
+    width: 100%;
+    grid-column: 1 / -1;
+    margin-top: 160px;
+
+    @media(max-width: 769px){
+        margin-top: 80px;
+    }
+}
+
+footer p,a{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #BDBDBD;
+}
