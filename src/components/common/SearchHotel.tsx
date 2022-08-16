@@ -5,6 +5,7 @@ import {locations} from './../../data/hotel-locations.js';
 import { useState } from 'react';
 import GuestCounter from './GuestCounter';
 import { Callback } from '../../types/Callback';
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
   onClose: Callback
@@ -52,14 +53,14 @@ const SearchHotel: React.FunctionComponent<Props> = ({onClose}: Props) => {
         <div className="contents">
           
           <div className={`contents__location ${activeTab === 'location' && 'active-tab'}`} onClick={()=> setActiveTab('location')}>
-            {activeTab === 'location' && <div className="activity"></div>}
+            {activeTab === 'location' && <motion.div transition={{ duration: 0.5 }}className="activity" layoutId="activity"/>}
             
             <h2 className="sub-title">Location</h2>
             <h2 className="title">{locations[location]}</h2>
           </div>
 
           <div className={`contents__guests ${activeTab === 'guest' && 'active-tab'}`} onClick={()=> setActiveTab('guest')}>
-          {activeTab === 'guest' && <div className="activity"></div>}
+          {activeTab === 'guest' && <motion.div transition={{ duration: 0.5 }} className="activity" layoutId="activity"/>}
 
             <h2 className="sub-title">Guests</h2>
             <h2 className="title">
@@ -77,36 +78,56 @@ const SearchHotel: React.FunctionComponent<Props> = ({onClose}: Props) => {
         <div className="search-hotel-results">
           
           <div className={`search-hotel-results__location`}>
+          
           {activeTab === 'location' && 
-            <ul>
-              {locations.map((location,index)=>{
-                return (
-                  <li key={location.id} onClick={()=> setLocation(index)}><img src={locationIcon} alt="" /> {location}</li>
-                )
-              })}
-            </ul>}
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={activeTab ? activeTab : "empty"}
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ul>
+                  {locations.map((location,index)=>{
+                    return (
+                      <li key={location.id} onClick={()=> setLocation(index)}><img src={locationIcon} alt="" /> {location}</li>
+                    )
+                  })}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
+            }
           </div>
 
           
           <div className="search-hotel-results__guests">
           {activeTab === 'guest' && 
-            <>
-            <GuestCounter 
-            title='Adults' 
-            subTitle='Ages 13 or above' 
-            count={adultGuestCount}
-            onIncrement={onAdultGuestCountIncrement}
-            onDecrement={onAdultGuestCountDecrement}
-            />
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={activeTab ? activeTab : "empty"}
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <GuestCounter 
+                title='Adults' 
+                subTitle='Ages 13 or above' 
+                count={adultGuestCount}
+                onIncrement={onAdultGuestCountIncrement}
+                onDecrement={onAdultGuestCountDecrement}
+                />
 
-          <GuestCounter 
-            title='Children' 
-            subTitle='Ages 2-12' 
-            count={childrenGuestCount}
-            onIncrement={onChildrenGuestCountIncrement}
-            onDecrement={onChildrenGuestCountDecrement}
-            />
-            </>
+              <GuestCounter 
+                title='Children' 
+                subTitle='Ages 2-12' 
+                count={childrenGuestCount}
+                onIncrement={onChildrenGuestCountIncrement}
+                onDecrement={onChildrenGuestCountDecrement}
+                />
+              </motion.div>
+            </AnimatePresence>
           }
           </div>
           
