@@ -2,11 +2,11 @@ import * as React from 'react';
 import IRoomProps from '../../models/IRoomProps';
 import Star from "./../../assets/images/icons/star.svg";
 
-const RoomCard: React.FC<IRoomProps> = ({id,imgUrl,title, label = '',rating,description}: IRoomProps) => {
+const RoomCard: React.FC<IRoomProps> = ({id,imgUrl,index, title, label = '',rating,description}: IRoomProps) => {
     return (
       <div className="room" key={id}>
         <div className="room__image-wrapper">
-            <img src={imgUrl} alt={title} />
+            <img src={`/src/assets/images/dynamic/room-${index}.jpg`} alt={title} />
         </div>
         <div className="room__details">
             <div className="room__details__detail">

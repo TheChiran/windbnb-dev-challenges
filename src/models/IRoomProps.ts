@@ -4,5 +4,6 @@ export default interface IRoomProps{
     title: string,
     label: string,
     rating: number,
-    description: string
+    description: string,
+    index: number
 };

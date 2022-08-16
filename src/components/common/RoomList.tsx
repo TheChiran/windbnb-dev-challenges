@@ -17,7 +17,7 @@ const RoomList: React.FC<IProps> = React.memo(({location = 'Finland',maximumSeat
             <h3 className="room-list__header__total-seat">{maximumSeat}+ stays</h3>
         </div>
         <div className="room-list__rooms">
-            {rooms?.map((room: IRoomProps)=>{
+            {rooms?.map((room: IRoomProps, index)=>{
                 return (
                     <RoomCard 
                         id={room.id}
@@ -26,6 +26,7 @@ const RoomList: React.FC<IProps> = React.memo(({location = 'Finland',maximumSeat
                         label={room.label} 
                         rating={room.rating} 
                         description={room.description}
+                        index={index+1}
                     />
                 );
             })}
