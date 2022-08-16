@@ -13,9 +13,9 @@ const GuestCounter: React.FunctionComponent<IGuestCounterProps> = ({title,subTit
             <h2 className="guest-counter__contents__sub-title">{subTitle}</h2>
         </div>
         <div className="guest-counter__count">
-            <div className="guest-counter__count__decrement" onClick={onDecrement}></div>
-            <div className="guest-counter__count__total">{count}</div>
-            <div className="guest-counter__count__increment" onClick={onIncrement}></div>
+            <button className="guest-counter__count__decrement" onClick={onDecrement}></button>
+            <p className="guest-counter__count__total">{count}</p>
+            <button className="guest-counter__count__increment" onClick={onIncrement}></button>
         </div>
       </div>
     );

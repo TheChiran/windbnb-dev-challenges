@@ -29,7 +29,7 @@ const Header = () => {
 
         
         <Drawer className='search-hotel-parent' backdrop placement={'top'} open={isOpen} onClose={() => setIsOpen(false)}>
-          <SearchHotel/>
+          <SearchHotel onClose={() => setIsOpen(false)}/>
         </Drawer>
       </header>
     );

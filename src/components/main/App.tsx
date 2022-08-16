@@ -14,7 +14,6 @@ const App: React.FC = () => {
 
     return (
       <div className='container'>
-        <SearchHotel/>
         <Header/>
         <RoomList location={'Finland'} maximumSeat={12}/>
         <footer>
