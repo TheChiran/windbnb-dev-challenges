@@ -39,19 +39,19 @@
 #
 
 ### Desktop View
-<img src="./assets/images/project-views/desktop-view.png"/>
+<img src="./src/assets/images/project-views/desktop-view.png"/>
 
-<img src="./assets/images/project-views/desktop-view-menu.png"/>
+<img src="./src/assets/images/project-views/desktop-view-menu.png"/>
 
 ### Tablet View
-<img src="./assets/images/project-views/tablet-view.png"/>
+<img src="./src/assets/images/project-views/tablet-view.png"/>
 
 ### Mobile View
-<img src="./assets/images/project-views/mobile-view.png"/>
+<img src="./src/assets/images/project-views/mobile-view.png"/>
 
-<img src="./assets/images/project-views/mobile-menu-guests.png"/>
+<img src="./src/assets/images/project-views/mobile-menu-guests.png"/>
 
-<img src="./assets/images/project-views/mobile-menu-location.png"/>
+<img src="./src/assets/images/project-views/mobile-menu-location.png"/>
 
 ### Built With
 
