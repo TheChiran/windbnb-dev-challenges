@@ -6,7 +6,7 @@ const RoomCard: React.FC<IRoomProps> = ({id,imgUrl,index, title, label = '',rati
     return (
       <div className="room" key={id}>
         <div className="room__image-wrapper">
-            <img src={`/src/assets/images/dynamic/room-${index}.jpg`} alt={title} />
+            <img src={imgUrl} alt={title} />
         </div>
         <div className="room__details">
             <div className="room__details__detail">
